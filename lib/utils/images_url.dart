@@ -181,3 +181,7 @@ class ImageUrl {
 
   static const String assetsImageYoutube = "assets/image/youtube.png";
 }
+
+class RiveUrl {
+  static const String loader = "assets/rive/loader.riv";
+}
