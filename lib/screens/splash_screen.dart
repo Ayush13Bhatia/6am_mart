@@ -1,12 +1,33 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:mart/screens/login_screen.dart';
 import 'package:mart/utils/images_url.dart';
 import 'package:mart/utils/my_theme.dart';
 import 'package:rive/rive.dart' as riv;
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    Timer(const Duration(seconds: 3), () {
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (_) => const LoginScreen(),
+        ),
+        (route) => false,
+      );
+    });
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyTheme.primaryLight,
