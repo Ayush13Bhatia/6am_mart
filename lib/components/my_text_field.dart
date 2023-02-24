@@ -12,12 +12,13 @@ class MyTextField extends StatelessWidget {
   final String? label;
   final String? hint;
   final TextStyle? hintTextStyle;
-  final TextStyle? lableTextStyle;
+  final TextStyle? labelTextStyle;
   final Widget? suffixWidget;
   final Widget? prefixWidget;
   final TextInputType? inputType;
   final TextStyle? style;
   final bool isReadOnly;
+  final String? Function(String?)? validator;
 
   const MyTextField({
     super.key,
@@ -30,12 +31,13 @@ class MyTextField extends StatelessWidget {
     this.label,
     this.hint,
     this.hintTextStyle,
-    this.lableTextStyle,
+    this.labelTextStyle,
     this.suffixWidget,
     this.prefixWidget,
     this.inputType = TextInputType.text,
     this.style,
     this.isReadOnly = false,
+    this.validator,
   });
 
   @override
@@ -64,7 +66,7 @@ class MyTextField extends StatelessWidget {
             labelText: label,
             prefix: prefixWidget,
             suffix: suffixWidget,
-            labelStyle: lableTextStyle ??
+            labelStyle: labelTextStyle ??
                 TextStyle(
                   color: MyTheme.primary.withOpacity(0.8),
                 ),

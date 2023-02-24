@@ -5,12 +5,20 @@ import '../components/my_text_field.dart';
 import '../utils/images_url.dart';
 import '../utils/my_theme.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController _countryController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Column(
         children: [
@@ -31,7 +39,6 @@ class LoginScreen extends StatelessWidget {
               fontFamily: "Roboto",
             ),
           ),
-          const SizedBox(height: 20),
           const SizedBox(height: 20),
           MyTextField(
             controller: _countryController,
@@ -55,22 +62,41 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             onTap: () {
-              showCountryPicker(
-                context: context,
-                showPhoneCode: true,
-                favorite: ["IN"],
-                countryListTheme: CountryListThemeData(
-                  flagSize: 35,
-                  bottomSheetHeight: size.height * 0.8,
-                ),
-                onSelect: (Country country) {
-                  print('Select country: ${country.flagEmoji}');
-                  _countryController.text = "${country.flagEmoji} ${country.name}(+${country.phoneCode})";
-                },
-              );
+              // showCountryPicker(
+              //   context: context,
+              //   showPhoneCode: true,
+              //   favorite: ["IN"],
+              //   countryListTheme: CountryListThemeData(
+              //     flagSize: 35,
+              //     bottomSheetHeight: size.height * 0.8,
+              //   ),
+              //   onSelect: (Country country) {
+              //     print('Select country: ${country.flagEmoji}');
+              //     _countryController.text = "${country.flagEmoji} ${country.name}(+${country.phoneCode})";
+              //   },
+              // );
             },
           ),
+          const SizedBox(height: 20),
           const SizedBox(height: 2),
+          MyTextField(
+            controller: _phoneController,
+            label: "Enter Phone Number",
+            borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(8),
+              bottomRight: Radius.circular(8),
+            ),
+            inputType: TextInputType.number,
+            validator: (st) {
+              if (st == null) {
+                return "Please input mobile number";
+              }
+              if (st.isEmpty) {
+                return "Please input mobile number";
+              }
+              return null;
+            },
+          ),
         ],
       ),
     );
