@@ -78,7 +78,6 @@ class _LoginScreenState extends State<LoginScreen> {
             },
           ),
           const SizedBox(height: 20),
-          const SizedBox(height: 2),
           MyTextField(
             controller: _phoneController,
             label: "Enter Phone Number",
@@ -96,6 +95,51 @@ class _LoginScreenState extends State<LoginScreen> {
               }
               return null;
             },
+          ),
+          const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Theme(
+              data: Theme.of(context).copyWith(
+                splashColor: Colors.transparent,
+                splashFactory: InkSparkle.constantTurbulenceSeedSplashFactory,
+              ),
+              child: CheckboxListTile(
+                enableFeedback: false,
+                visualDensity: const VisualDensity(horizontal: -4),
+                title: RichText(
+                  text: TextSpan(
+                    children: [
+                      const TextSpan(
+                        text: "I have read and accepted the ",
+                        style: TextStyle(
+                          color: MyTheme.primary,
+                          fontSize: 14,
+                          fontFamily: "Roboto",
+                        ),
+                      ),
+                      TextSpan(
+                        text: "Terms of Use",
+                        recognizer: TapGestureRecognizer()..onTap = () => print("Hello"),
+                        style: const TextStyle(
+                          decoration: TextDecoration.underline,
+                          color: MyTheme.primary,
+                          fontSize: 14,
+                          fontFamily: "Roboto",
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                value: isTermsAccepted,
+                onChanged: (val) {
+                  setState(() {
+                    isTermsAccepted = !isTermsAccepted;
+                  });
+                },
+              ),
+            ),
           ),
         ],
       ),
