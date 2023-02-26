@@ -141,6 +141,39 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
+
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Hero(
+              tag: "login_btn",
+              child: MyButton(
+                onTap: () {
+                  // if (_formKey.currentState == null) {
+                  //   return;
+                  // }
+                  // if (!_formKey.currentState!.validate()) {
+                  //   return;
+                  // }
+                  context.goNamed(MyRoutes.otpScreen);
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: MyTheme.primary,
+                  padding: const EdgeInsets.symmetric(vertical: 13),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  shadowColor: MyTheme.primaryLight,
+                  elevation: 12,
+                ),
+                child: const MyText(
+                  "Next",
+                  textStyle: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 20),
+          // --------------Or-----------
         ],
       ),
     );
