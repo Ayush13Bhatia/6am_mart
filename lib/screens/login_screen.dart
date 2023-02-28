@@ -183,6 +183,30 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const SizedBox(height: 20),
             // --------------Or-----------
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Stack(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(top: 5),
+                    child: Divider(
+                      color: MyTheme.primaryContainerLight,
+                    ),
+                  ),
+                  Center(
+                    child: Container(
+                      padding: const EdgeInsets.all(3),
+                      color: Theme.of(context).scaffoldBackgroundColor,
+                      child: const MyText(
+                        "OR",
+                        textStyle: TextStyle(color: MyTheme.primary),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 10),
           ],
         ),
       ),
