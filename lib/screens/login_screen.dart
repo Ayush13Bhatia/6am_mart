@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../components/button_widget.dart';
+import '../components/image_button.dart';
 import '../components/my_text.dart';
 import '../components/my_text_field.dart';
 import '../utils/images_url.dart';
@@ -207,6 +208,21 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             const SizedBox(height: 10),
+            //SOCIAL LOGIN
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                MyImageButton(
+                  ImageUrl.assetsImageGoogle,
+                  onTap: () {},
+                ),
+                const SizedBox(width: 20),
+                MyImageButton(
+                  ImageUrl.assetsImageFacebook,
+                  onTap: () {},
+                ),
+              ],
+            )
           ],
         ),
       ),
