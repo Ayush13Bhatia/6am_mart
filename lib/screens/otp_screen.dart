@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../components/my_text.dart';
+import '../utils/my_theme.dart';
+
 class OTPScreen extends StatefulWidget {
   const OTPScreen({Key? key}) : super(key: key);
 
@@ -38,6 +41,17 @@ class _OTPScreenState extends State<OTPScreen> {
                   ),
                 ),
               ),
+            ),
+          ),
+          const SizedBox(height: 80),
+          const MyText(
+            "Fill the code",
+            textAlign: TextAlign.center,
+            textStyle: TextStyle(
+              color: MyTheme.primary,
+              fontSize: 22,
+              fontFamily: "Roboto",
+              fontWeight: FontWeight.w500,
             ),
           ),
         ],
